@@ -1,4 +1,5 @@
 import discord
+import random
 from discord.ext import commands
 
 intents = discord.Intents.default()
@@ -23,4 +24,9 @@ async def add(ctx, left: int, right: int):
     """Adds two numbers together."""
     await ctx.send(left + right)
 
-bot.run(")
+@bot.command(description='choose pizza hamburguesa tacos')
+async def choose(ctx, *choices: str):
+    """Chooses between multiple choices."""
+    await ctx.send(random.choice(choices))
+    
+bot.run("")
